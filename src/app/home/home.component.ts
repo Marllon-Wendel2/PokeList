@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { forkJoin } from 'rxjs';
 
 @Component({
@@ -15,7 +16,7 @@ export class HomeComponent {
   currentPage = 1;
   limit = 40;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private router: Router) {}
 
   ngOnInit(): void {
     this.loadPokemons();
@@ -61,6 +62,10 @@ export class HomeComponent {
     }
   }
 
+  goToDetails(name: string): void {
+    this.router.navigate([`/pokemon/${name}`]);
+  }
+
   getBackgroundColor(type: string): string {
     switch (type) {
       case 'fire':
@@ -100,7 +105,7 @@ export class HomeComponent {
       case 'normal':
         return '#A8A878';
       default:
-        return '#DDD'; // cor padrão
+        return '#DDD';
     }
   }
 }

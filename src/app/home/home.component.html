@@ -7,7 +7,13 @@
       'background-color': getBackgroundColor(pokemon.types.split(',')[0].trim())
     }"
   >
-    <img [src]="pokemon.image" class="card-img-top" alt="{{ pokemon.name }}" />
+    <img
+      [src]="pokemon.image"
+      class="card-img-top"
+      alt="{{ pokemon.name }}"
+      (click)="goToDetails(pokemon.name)"
+      style="cursor: pointer"
+    />
     <div class="card-body">
       <h5 class="card-title">{{ pokemon.name | uppercase }}</h5>
       <p class="card-text">ID: {{ pokemon.id }}</p>
