@@ -1,31 +1,28 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { NzCardModule } from 'ng-zorro-antd/card';
-import { NzTagModule } from 'ng-zorro-antd/tag';
-import { NzProgressModule } from 'ng-zorro-antd/progress';
-import { NzSpinModule } from 'ng-zorro-antd/spin';
 import { CommonModule } from '@angular/common';
-import { NzDescriptionsModule } from 'ng-zorro-antd/descriptions';
-import { NzResultModule } from 'ng-zorro-antd/result';
-import { NzAlertModule } from 'ng-zorro-antd/alert';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-pokemon',
   standalone: true,
-  imports: [
-    CommonModule,
-    NzCardModule,
-    NzTagModule,
-    NzProgressModule,
-    NzSpinModule,
-    NzDescriptionsModule,
-    NzResultModule,
-    NzAlertModule,
-  ],
+  imports: [CommonModule],
   templateUrl: './pokemon.component.html',
   styleUrl: './pokemon.component.css',
 })
 export class PokemonComponent implements OnInit {
-  ngOnInit(): void {}
+  name!: string;
+  dataPokemon: any;
+  constructor(private route: ActivatedRoute, private http: HttpClient) {}
+
+  ngOnInit(): void {
+    this.name = this.route.snapshot.paramMap.get('name')!;
+
+    this.http
+      .get<any>(`https://pokeapi.co/api/v2/pokemon/${this.name}`)
+      .subscribe((data) => {
+        this.dataPokemon = data;
+        console.log('Pokémon:', data);
+      });
+  }
 }
