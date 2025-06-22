@@ -11,7 +11,6 @@ PokeList é uma aplicação web desenvolvida com **Angular** e estilizada com **
 - 📄 **Página de detalhes** de cada Pokémon (com stats, tipos, habilidades, peso e altura)
 - 📌 **Página exclusiva de favoritos**
 - 🎨 **Cores dinâmicas** no card com base no tipo do Pokémon
-- 🔍 Campo de **busca** no topo da aplicação
 
 ---
 
