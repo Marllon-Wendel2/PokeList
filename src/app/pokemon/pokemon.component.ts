@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
+import { PokemonStyleService } from '../services/pokemon-style.service';
 
 @Component({
   selector: 'app-pokemon',
@@ -13,7 +14,11 @@ import { HttpClient } from '@angular/common/http';
 export class PokemonComponent implements OnInit {
   name!: string;
   dataPokemon: any;
-  constructor(private route: ActivatedRoute, private http: HttpClient) {}
+  constructor(
+    private route: ActivatedRoute,
+    private http: HttpClient,
+    private styleService: PokemonStyleService
+  ) {}
 
   ngOnInit(): void {
     this.name = this.route.snapshot.paramMap.get('name')!;
@@ -24,5 +29,9 @@ export class PokemonComponent implements OnInit {
         this.dataPokemon = data;
         console.log('Pokémon:', data);
       });
+  }
+
+  getBackgroundColor(type: string): string {
+    return this.styleService.getBackgroundColor(type);
   }
 }

@@ -1,7 +1,15 @@
 <div class="container mt-5" *ngIf="dataPokemon">
-  <div class="card mx-auto shadow" style="max-width: 500px">
-    <div class="card-header bg-primary text-white text-center">
-      <h2 class="mb-0 text-capitalize">{{ dataPokemon.name }}</h2>
+  <div
+    class="card mx-auto shadow"
+    style="max-width: 500px"
+    [ngStyle]="{
+      'background-color': getBackgroundColor(dataPokemon.types[0].type.name)
+    }"
+  >
+    <div class="card-header text-white text-center">
+      <h2 class="mb-0 text-capitalize text-white">
+        {{ dataPokemon.name | uppercase }}
+      </h2>
     </div>
     <div class="card-body text-center">
       <img

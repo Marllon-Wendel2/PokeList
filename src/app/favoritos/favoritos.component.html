@@ -1,0 +1,27 @@
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div
+      *ngFor="let pokemon of pokemons"
+      class="card m-2 text-white"
+      style="width: 18rem; min-width: 350px"
+      [ngStyle]="{
+        'background-color': getBackgroundColor(
+          pokemon.types.split(',')[0].trim()
+        )
+      }"
+    >
+      <img
+        [src]="pokemon.image"
+        class="card-img-top"
+        alt="{{ pokemon.name }}"
+        style="cursor: pointer"
+        [routerLink]="['/pokemon', pokemon.name]"
+      />
+      <div class="card-body">
+        <h5 class="card-title">{{ pokemon.name | uppercase }}</h5>
+        <p class="card-text">ID: {{ pokemon.id }}</p>
+        <p class="card-text">Tipos: {{ pokemon.types }}</p>
+      </div>
+    </div>
+  </div>
+</div>

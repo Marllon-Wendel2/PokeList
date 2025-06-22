@@ -10,6 +10,11 @@ import { Router } from '@angular/router';
 })
 export class NavbarComponent {
   constructor(private router: Router) {}
+
+  goTo(routerString: string): void {
+    this.router.navigate([`${routerString}`]);
+  }
+
   backHome(): void {
     this.router.navigate(['/']);
   }

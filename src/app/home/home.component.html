@@ -7,6 +7,32 @@
       'background-color': getBackgroundColor(pokemon.types.split(',')[0].trim())
     }"
   >
+    <button
+      (click)="toggleFavorite(pokemon)"
+      [ngStyle]="{
+        background: 'none',
+        border: 'none',
+        color: isFavorite(pokemon) ? 'gold' : 'white',
+        'font-size': '26px',
+        'text-shadow': hovering === pokemon.name ? '0 0 8px gold' : 'none',
+        transition: 'color 0.3s ease, text-shadow 0.3s ease',
+        padding: '0',
+        cursor: 'pointer',
+        position: 'absolute',
+        top: '10px',
+        right: '10px',
+        display: 'flex',
+        'align-items': 'center',
+        'justify-content': 'center'
+      }"
+      aria-label="Favoritar Pokémon"
+      title="Favoritar Pokémon"
+      (mouseenter)="hovering = pokemon.name"
+      (mouseleave)="hovering = ''"
+    >
+      ★
+    </button>
+
     <img
       [src]="pokemon.image"
       class="card-img-top"
