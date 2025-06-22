@@ -34,4 +34,8 @@ export class PokemonComponent implements OnInit {
   getBackgroundColor(type: string): string {
     return this.styleService.getBackgroundColor(type);
   }
+
+  getMoveName(move: any): string {
+    return move?.move?.name || '';
+  }
 }

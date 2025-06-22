@@ -1,27 +1,46 @@
-# PokeList
+# 🧩 PokeList
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.6.
+PokeList é uma aplicação web desenvolvida com **Angular** e estilizada com **Bootstrap**, que consome a [PokéAPI](https://pokeapi.co/) para listar, favoritar e visualizar detalhes de Pokémons.
 
-## Development server
+---
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## 🚀 Funcionalidades
 
-## Code scaffolding
+- ✅ **Listagem de Pokémons** com paginação
+- ⭐ **Favoritar Pokémons** com persistência local (`localStorage`)
+- 📄 **Página de detalhes** de cada Pokémon (com stats, tipos, habilidades, peso e altura)
+- 📌 **Página exclusiva de favoritos**
+- 🎨 **Cores dinâmicas** no card com base no tipo do Pokémon
+- 🔍 Campo de **busca** no topo da aplicação
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+---
 
-## Build
+## 🛠 Tecnologias utilizadas
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+- [Angular](https://angular.io/) 17+
+- [Bootstrap](https://getbootstrap.com/)
+- [PokéAPI](https://pokeapi.co/)
+- [TypeScript](https://www.typescriptlang.org/)
+- `localStorage` para persistência de favoritos
 
-## Running unit tests
+---
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## 📂 Estrutura do Projeto
 
-## Running end-to-end tests
+src/
+├── app/
+│ ├── home/ # Página principal com listagem de Pokémons
+│ ├── pokemon/ # Página de detalhes de cada Pokémon
+│ ├── favoritos/ # Página com lista de favoritos
+│ ├── services/
+│ │ └── pokemon-style.service.ts # Serviço para cores dinâmicas por tipo
+│ ├── navbar/ # Componente de navegação
+│ └── app.routes.ts # Rotas da aplicação
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## 🌐 Deploy Online
 
-## Further help
+Você pode acessar a aplicação online neste link:
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+[![Vercel](https://img.shields.io/badge/Deploy-Vercel-blue)](https://poke-list-git-master-marllon-wendel2s-projects.vercel.app/)
+
+👉 [https://poke-list-git-master-marllon-wendel2s-projects.vercel.app/](https://poke-list-git-master-marllon-wendel2s-projects.vercel.app/)
